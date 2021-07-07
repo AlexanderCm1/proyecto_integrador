@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import LoginComponent from "../../components/login-components/Login";
+import LoginComponent from "../../components/forms/Login";
 import AuthService from "../../auth/auth.service";
 import {useLocation, Redirect } from "react-router-dom";
 
