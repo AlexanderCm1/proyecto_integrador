@@ -313,7 +313,7 @@ const Comision = ({ user }) => {
           <form onSubmit={createConsurso} className="flex justify-center">
             <button
               type="submit"
-              className="text-center focus:outline-none border p-2 bg-red-600 sm:bg-red-400 text-white rounded-xl max-w-md transition duration-500 ease select-none hover:bg-upeu-3 focus:ring"
+              className="text-center focus:outline-none border p-2 bg-red-600 sm:bg-red-400 text-white rounded-xl max-w-md transition duration-500 ease select-none hover:bg-red-600 focus:ring"
             >
               Crear concurso
             </button>
@@ -382,7 +382,7 @@ const Comision = ({ user }) => {
               onSubmit={handleOnUpdate}
               className="flex w-full justify-center"
             >
-              <button className="focus:outline-none border p-2 bg-red-600 text-white w-full sm:w-3/12 rounded-xl my-5">
+              <button className="focus:outline-none border p-2 bg-red-400 hover:bg-red-500 text-white w-full sm:w-3/12 rounded-xl my-5">
                 Guardar
               </button>
             </form>
@@ -505,7 +505,7 @@ const Comision = ({ user }) => {
             </Faq>
             <form onSubmit={handleTerminar} className="flex justify-end">
               <button
-                className="px-2 py-1 bg-red-600 text-white rounded-xl w-1/4"
+                className="px-2 py-1 bg-red-400 hover:bg-red-500 text-white rounded-xl w-1/4"
                 type="submit"
               >
                 Terminar

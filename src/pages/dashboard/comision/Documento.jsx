@@ -47,6 +47,18 @@ class Documento extends Component {
 const listOfDocument = (props) => {
   return (
     <div className="flex flex-col flex-wrap sm:flex-row">
+      {props.doc_guia && (
+        <a
+          target="_blank"
+          href={props.doc_guia}
+          rel="noopener noreferrer"
+          className="w-36 text-center"
+        >
+          <img src={props.imagePdf} alt="" />
+          <span>Guia del concurso</span>
+        </a>
+      )}
+
       {props.doc_bases && (
         <>
           <a
@@ -60,17 +72,7 @@ const listOfDocument = (props) => {
           </a>
         </>
       )}
-      {props.doc_guia && (
-        <a
-          target="_blank"
-          href={props.doc_guia}
-          rel="noopener noreferrer"
-          className="w-36 text-center"
-        >
-          <img src={props.imagePdf} alt="" />
-          <span>Guia del concurso</span>
-        </a>
-      )}
+
 
       {props.doc_req && (
         <a
