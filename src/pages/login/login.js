@@ -2,15 +2,17 @@ import React, { useState, useEffect } from "react";
 import LoginComponent from "../../components/forms/Login";
 import AuthService from "../../auth/auth.service";
 import {useLocation, Redirect } from "react-router-dom";
-
+import {LoadingDefault} from '../../components/loaders/Loader';
 
 const Login = (props) => {
   const [form, setForm] = useState({ user: "", password: "" });
   const [redirectToRef, setRedirectToRef] = useState(false);
   const { state } = useLocation();
+  const [loader, setLoader] = useState(false);
 
   const onSubmit = (e) => {
     e.preventDefault();
+    setLoader(true)
     const { user, password } = form;
 
     AuthService.login(user, password).then(
@@ -19,6 +21,7 @@ const Login = (props) => {
           localStorage.setItem("user", JSON.stringify(response));
         //   props.setAuth(true);
           setRedirectToRef(true);
+          setLoader(false)
         }
       },
       (error) => {
@@ -28,12 +31,14 @@ const Login = (props) => {
   };
   useEffect(() => {
     if (localStorage.user) {
+      setLoader(true);
       AuthService.verify(AuthService.getCurrentUser().accessToken).then(
         (response) => {
           console.log(response);
           if (response === true) {
             props.setAuth(true);
             setRedirectToRef(true);
+            setLoader(false)
           } else {
             props.setAuth(false);
             setRedirectToRef(false);
@@ -57,6 +62,10 @@ const Login = (props) => {
   if (redirectToRef === true) {
     return <Redirect to={state?.from || "/dashboard"} />;
   }
+  if (loader === true) {
+    return <LoadingDefault />;
+  }
+
   return (
     <>
       <LoginComponent

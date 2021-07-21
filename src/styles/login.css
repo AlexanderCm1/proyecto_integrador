@@ -1,5 +1,5 @@
 .upeu-tara {
-  background-image: url("../assets/image.png");
+  background-image: url("../assets/img/image.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -28,4 +28,14 @@ li:hover > button svg {
 }
 .min-w-32 {
   min-width: 8rem;
+}
+
+.cards {
+  height: 550px;
+}
+
+.cards-capitulos-modulos:hover{
+  border : 2px solid ;
+  
+  display: block;
 }

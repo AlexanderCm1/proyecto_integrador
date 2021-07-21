@@ -78,6 +78,13 @@ class UserService {
       body,
     }).then((res) => res.json());
   }
+  async getLegajos() {
+    let headers = new Headers(authAheader());
+    return await fetch(`${API_URL}comision/revision/legajos`, {
+      method: "GET",
+      headers,
+    }).then((res) => res.json());
+  }
 }
 
 

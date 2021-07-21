@@ -1,4 +1,4 @@
-import React, { Fragment,useState } from "react";
+import React, { Fragment,useState,useEffect  } from "react";
 import logo,{ ReactComponent as Logo } from "../../assets/icons/Logo_upeu.svg";
 
 import { Disclosure, Menu, Transition } from "@headlessui/react";
@@ -15,10 +15,22 @@ export default function Navbar({user,onClick}) {
   const [navegation,setNavigation] = useState([
     { id:0, name: 'Dashboard', href: '/dashboard', current: true },
     { id:1, name: 'Concursos', href: '/dashboard/concurso', current: false },
-    { id:2,name: 'Projects', href: '/dashboard', current: false },
-    { id:3,name: 'Calendar', href: '/dashboard', current: false },
+    { id:2,name: 'Evaluación', href: '/dashboard/listado', current: false },
+    // { id:3,name: 'Calendar', href: '/dashboard', current: false },
   ]);
-
+  useEffect(() => {
+    if (user.rol === "Docente") {
+      setNavigation([
+        { id: 0, name: "Dashboard", href: "/dashboard", current: true },
+        {
+          id: 1,
+          name: "Participar",
+          href: "/dashboard/participar",
+          current: false,
+        },
+      ]);
+    }
+  }, []);
 
 
   return (
